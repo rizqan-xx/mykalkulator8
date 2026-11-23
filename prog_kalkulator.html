@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Kalkulator</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background: rgb(209, 207, 173);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .container{
+         background: rgb(199, 209, 199);
+         padding: 25px;
+         width: 300px;
+         border-radius: 10px;
+         text-align: center;
+         box-shadow: 0 3px 10px rgba(19, 18, 18, 0.1);
+    }
+
+    input,select{
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    button{
+        width: 100%;
+        padding: 10px;
+        background: rgb(88, 197, 88);
+        color: aliceblue;
+        border: none;
+        cursor: pointer;
+    }
+    
+    button:hover{
+        background: rgb(9, 172, 194);
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kalkulator Sederhana</h2>
+        <input type="number" id="angka1" placeholder="Masukan Angka Pertama">
+        <input type="number" id="angka2" placeholder="Masukan Angka Kedua">
+
+        <select id="operator">
+            <option value="+">Penjumlahan (+)</option>
+            <option value="-">Pengurangan (-)</option>
+            <option value="*">Perkalian (*)</option>
+            <option value="/">Pembagian (/)</option>
+        </select>
+
+        <button onclick="hitung()">Hitung()</button>
+        <h3 id="hasil">Hasil : -</h3>
+    </div>
+
+    <script>
+        function hitung(){
+            let angka1 = Number(document.getElementById("angka1").value);
+            let angka2 = Number(document.getElementById("angka2").value);
+
+            let operator = document.getElementById("operator").value;
+            let hasil;
+
+            if (operator == "+"){
+                hasil = angka1 + angka2;
+            } else if(operator == "-"){
+                hasil = angka1 - angka2;
+            } else if(operator == "*"){
+                hasil = angka1 * angka2; 
+            } else if(operator == "/"){
+                if (angka2 == 0){
+                    hasil ="Tidak bisa dibagi nol!"
+                } else{
+                    hasil = angka1 /angka2
+                }
+            }
+    
+            document.getElementById("hasil").innerHTML = "Hasil : "+ hasil;
+        }
+    </script>
+</body>
+</html>
